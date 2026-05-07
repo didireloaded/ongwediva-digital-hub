@@ -22,6 +22,7 @@ import { Route as ExhibitorsRouteImport } from './routes/exhibitors'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExhibitorsIdRouteImport } from './routes/exhibitors.$id'
 
 const VisitorsRoute = VisitorsRouteImport.update({
   id: '/visitors',
@@ -88,12 +89,17 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExhibitorsIdRoute = ExhibitorsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ExhibitorsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/exhibitors': typeof ExhibitorsRoute
+  '/exhibitors': typeof ExhibitorsRouteWithChildren
   '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
   '/maps': typeof MapsRoute
@@ -103,12 +109,13 @@ export interface FileRoutesByFullPath {
   '/sponsors': typeof SponsorsRoute
   '/travel': typeof TravelRoute
   '/visitors': typeof VisitorsRoute
+  '/exhibitors/$id': typeof ExhibitorsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/exhibitors': typeof ExhibitorsRoute
+  '/exhibitors': typeof ExhibitorsRouteWithChildren
   '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
   '/maps': typeof MapsRoute
@@ -118,13 +125,14 @@ export interface FileRoutesByTo {
   '/sponsors': typeof SponsorsRoute
   '/travel': typeof TravelRoute
   '/visitors': typeof VisitorsRoute
+  '/exhibitors/$id': typeof ExhibitorsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/exhibitors': typeof ExhibitorsRoute
+  '/exhibitors': typeof ExhibitorsRouteWithChildren
   '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
   '/maps': typeof MapsRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/sponsors': typeof SponsorsRoute
   '/travel': typeof TravelRoute
   '/visitors': typeof VisitorsRoute
+  '/exhibitors/$id': typeof ExhibitorsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/sponsors'
     | '/travel'
     | '/visitors'
+    | '/exhibitors/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/sponsors'
     | '/travel'
     | '/visitors'
+    | '/exhibitors/$id'
   id:
     | '__root__'
     | '/'
@@ -181,13 +192,14 @@ export interface FileRouteTypes {
     | '/sponsors'
     | '/travel'
     | '/visitors'
+    | '/exhibitors/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ExhibitorsRoute: typeof ExhibitorsRoute
+  ExhibitorsRoute: typeof ExhibitorsRouteWithChildren
   ExploreRoute: typeof ExploreRoute
   LoginRoute: typeof LoginRoute
   MapsRoute: typeof MapsRoute
@@ -292,14 +304,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/exhibitors/$id': {
+      id: '/exhibitors/$id'
+      path: '/$id'
+      fullPath: '/exhibitors/$id'
+      preLoaderRoute: typeof ExhibitorsIdRouteImport
+      parentRoute: typeof ExhibitorsRoute
+    }
   }
 }
+
+interface ExhibitorsRouteChildren {
+  ExhibitorsIdRoute: typeof ExhibitorsIdRoute
+}
+
+const ExhibitorsRouteChildren: ExhibitorsRouteChildren = {
+  ExhibitorsIdRoute: ExhibitorsIdRoute,
+}
+
+const ExhibitorsRouteWithChildren = ExhibitorsRoute._addFileChildren(
+  ExhibitorsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ExhibitorsRoute: ExhibitorsRoute,
+  ExhibitorsRoute: ExhibitorsRouteWithChildren,
   ExploreRoute: ExploreRoute,
   LoginRoute: LoginRoute,
   MapsRoute: MapsRoute,

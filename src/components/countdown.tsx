@@ -14,17 +14,18 @@ function diff() {
 }
 
 export function Countdown() {
-  const [t, setT] = useState(diff());
+  const [t, setT] = useState<ReturnType<typeof diff> | null>(null);
   useEffect(() => {
+    setT(diff());
     const id = setInterval(() => setT(diff()), 1000);
     return () => clearInterval(id);
   }, []);
 
   const items = [
-    { label: "Days", value: t.days },
-    { label: "Hours", value: t.hours },
-    { label: "Minutes", value: t.minutes },
-    { label: "Seconds", value: t.seconds },
+    { label: "Days", value: t?.days },
+    { label: "Hours", value: t?.hours },
+    { label: "Minutes", value: t?.minutes },
+    { label: "Seconds", value: t?.seconds },
   ];
 
   return (
@@ -33,7 +34,7 @@ export function Countdown() {
         <div key={i.label} className="text-center">
           <div className="glass rounded-xl px-3 md:px-5 py-2.5 md:py-3 min-w-[60px] md:min-w-[80px]">
             <div className="font-display text-2xl md:text-4xl font-bold tabular-nums text-gradient-ember">
-              {String(i.value).padStart(2, "0")}
+              {i.value === undefined ? "--" : String(i.value).padStart(2, "0")}
             </div>
           </div>
           <div className="text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mt-2">
