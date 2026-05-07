@@ -1,0 +1,94 @@
+export type Exhibitor = {
+  id: string;
+  name: string;
+  category: string;
+  hall: string;
+  stand: string;
+  tagline: string;
+  featured?: boolean;
+};
+
+export const CATEGORIES = [
+  "All",
+  "Finance",
+  "Telecoms",
+  "Tech & Innovation",
+  "Agribusiness",
+  "Retail",
+  "Automotive",
+  "Tourism",
+  "Energy",
+  "Culture & Craft",
+] as const;
+
+export const HALLS = [
+  { id: "A", name: "Innovation Hall", color: "ember", count: 120 },
+  { id: "B", name: "Agribusiness", color: "savanna", count: 85 },
+  { id: "C", name: "Finance & Tech", color: "sun", count: 60 },
+  { id: "D", name: "Culture & Craft", color: "ember", count: 140 },
+  { id: "E", name: "Auto & Energy", color: "savanna", count: 70 },
+  { id: "F", name: "Lifestyle & Retail", color: "sun", count: 95 },
+];
+
+export const EXHIBITORS: Exhibitor[] = [
+  { id: "standard-bank", name: "Standard Bank", category: "Finance", hall: "C", stand: "C-12", tagline: "Banking Namibia's next chapter.", featured: true },
+  { id: "nedbank", name: "Nedbank Namibia", category: "Finance", hall: "C", stand: "C-08", tagline: "See money differently." },
+  { id: "bank-windhoek", name: "Bank Windhoek", category: "Finance", hall: "C", stand: "C-05", tagline: "Together we do better.", featured: true },
+  { id: "letshego", name: "Letshego", category: "Finance", hall: "C", stand: "C-22", tagline: "Improving lives across Africa." },
+  { id: "mtc", name: "MTC", category: "Telecoms", hall: "A", stand: "A-01", tagline: "Pure connection.", featured: true },
+  { id: "telecom-namibia", name: "Telecom Namibia", category: "Telecoms", hall: "A", stand: "A-14", tagline: "Connecting Namibia." },
+  { id: "paratus", name: "Paratus", category: "Tech & Innovation", hall: "A", stand: "A-22", tagline: "The network. Unlocked." },
+  { id: "namibia-breweries", name: "Namibia Breweries", category: "Retail", hall: "F", stand: "F-03", tagline: "Pure brewed quality.", featured: true },
+  { id: "agra", name: "AGRA", category: "Agribusiness", hall: "B", stand: "B-01", tagline: "Empowering Namibian farmers." },
+  { id: "namibia-dairies", name: "Namibia Dairies", category: "Agribusiness", hall: "B", stand: "B-12", tagline: "Fresh from the farm." },
+  { id: "meatco", name: "Meatco", category: "Agribusiness", hall: "B", stand: "B-18", tagline: "Premium Namibian beef." },
+  { id: "toyota-namibia", name: "Toyota Namibia", category: "Automotive", hall: "E", stand: "E-02", tagline: "Let's go places.", featured: true },
+  { id: "ford-namibia", name: "Ford Namibia", category: "Automotive", hall: "E", stand: "E-08", tagline: "Built tough." },
+  { id: "namibia-tourism", name: "Namibia Tourism Board", category: "Tourism", hall: "D", stand: "D-30", tagline: "Endless horizons." },
+  { id: "nampower", name: "NamPower", category: "Energy", hall: "E", stand: "E-22", tagline: "Powering progress." },
+  { id: "lucky-bet", name: "Lucky Bet", category: "Retail", hall: "F", stand: "F-18", tagline: "Where winners play." },
+  { id: "energy-100", name: "Energy 100 FM", category: "Tech & Innovation", hall: "A", stand: "A-30", tagline: "The hits station." },
+  { id: "owambo-craft", name: "Owambo Craft Co-op", category: "Culture & Craft", hall: "D", stand: "D-04", tagline: "Heritage. Hand-made.", featured: true },
+  { id: "namibian-design", name: "Namibian Design Lab", category: "Culture & Craft", hall: "D", stand: "D-15", tagline: "Modern African design." },
+  { id: "ongwediva-council", name: "Ongwediva Town Council", category: "Tourism", hall: "D", stand: "D-01", tagline: "Host town. Proud town." },
+];
+
+export type ScheduleEvent = {
+  id: string;
+  day: string;
+  time: string;
+  title: string;
+  venue: string;
+  type: "Keynote" | "Panel" | "Launch" | "Cultural" | "Networking";
+};
+
+export const SCHEDULE_DAYS = [
+  { id: "fri", date: "Aug 28", label: "Opening Day" },
+  { id: "sat", date: "Aug 29", label: "Innovation" },
+  { id: "sun", date: "Aug 30", label: "Agribusiness" },
+  { id: "mon", date: "Aug 31", label: "Finance" },
+  { id: "tue", date: "Sep 1", label: "Tech & Telco" },
+  { id: "wed", date: "Sep 2", label: "Culture" },
+  { id: "thu", date: "Sep 3", label: "Youth & Startups" },
+  { id: "fri2", date: "Sep 4", label: "Tourism" },
+  { id: "sat2", date: "Sep 5", label: "Closing Gala" },
+];
+
+export const SCHEDULE: ScheduleEvent[] = [
+  { id: "1", day: "fri", time: "09:00", title: "Official Opening Ceremony", venue: "Main Stage", type: "Keynote" },
+  { id: "2", day: "fri", time: "11:00", title: "Ribbon Cutting · Innovation Hall", venue: "Hall A", type: "Launch" },
+  { id: "3", day: "fri", time: "15:00", title: "President's Welcome Address", venue: "Main Stage", type: "Keynote" },
+  { id: "4", day: "fri", time: "19:00", title: "Opening Night Cultural Showcase", venue: "Outdoor Stage", type: "Cultural" },
+  { id: "5", day: "sat", time: "10:00", title: "Africa Innovates · Panel Discussion", venue: "Hall A", type: "Panel" },
+  { id: "6", day: "sat", time: "14:00", title: "Startup Pitch Battle", venue: "Hall A", type: "Launch" },
+  { id: "7", day: "sat", time: "17:00", title: "Tech Networking Mixer", venue: "Innovation Lounge", type: "Networking" },
+  { id: "8", day: "sun", time: "10:00", title: "The Future of Namibian Farming", venue: "Hall B", type: "Panel" },
+  { id: "9", day: "sun", time: "13:00", title: "Livestock Auction & Showcase", venue: "Outdoor Arena", type: "Launch" },
+  { id: "10", day: "mon", time: "09:30", title: "Banking the Unbanked · Keynote", venue: "Hall C", type: "Keynote" },
+  { id: "11", day: "mon", time: "15:00", title: "SME Finance Panel", venue: "Hall C", type: "Panel" },
+  { id: "12", day: "tue", time: "11:00", title: "5G & Beyond · MTC Keynote", venue: "Hall A", type: "Keynote" },
+  { id: "13", day: "wed", time: "18:00", title: "Owambo Cultural Night", venue: "Outdoor Stage", type: "Cultural" },
+  { id: "14", day: "thu", time: "10:00", title: "Youth Entrepreneurship Summit", venue: "Hall A", type: "Panel" },
+  { id: "15", day: "fri2", time: "14:00", title: "Discover Namibia · Tourism Showcase", venue: "Hall D", type: "Launch" },
+  { id: "16", day: "sat2", time: "20:00", title: "OATF 2026 Closing Gala", venue: "Main Stage", type: "Cultural" },
+];
