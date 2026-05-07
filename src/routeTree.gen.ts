@@ -9,8 +9,80 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VisitorsRouteImport } from './routes/visitors'
+import { Route as TravelRouteImport } from './routes/travel'
+import { Route as SponsorsRouteImport } from './routes/sponsors'
+import { Route as ScheduleRouteImport } from './routes/schedule'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as MapsRouteImport } from './routes/maps'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as ExhibitorsRouteImport } from './routes/exhibitors'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VisitorsRoute = VisitorsRouteImport.update({
+  id: '/visitors',
+  path: '/visitors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TravelRoute = TravelRouteImport.update({
+  id: '/travel',
+  path: '/travel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SponsorsRoute = SponsorsRouteImport.update({
+  id: '/sponsors',
+  path: '/sponsors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScheduleRoute = ScheduleRouteImport.update({
+  id: '/schedule',
+  path: '/schedule',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapsRoute = MapsRouteImport.update({
+  id: '/maps',
+  path: '/maps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExhibitorsRoute = ExhibitorsRouteImport.update({
+  id: '/exhibitors',
+  path: '/exhibitors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +91,200 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/exhibitors': typeof ExhibitorsRoute
+  '/explore': typeof ExploreRoute
+  '/login': typeof LoginRoute
+  '/maps': typeof MapsRoute
+  '/news': typeof NewsRoute
+  '/register': typeof RegisterRoute
+  '/schedule': typeof ScheduleRoute
+  '/sponsors': typeof SponsorsRoute
+  '/travel': typeof TravelRoute
+  '/visitors': typeof VisitorsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/exhibitors': typeof ExhibitorsRoute
+  '/explore': typeof ExploreRoute
+  '/login': typeof LoginRoute
+  '/maps': typeof MapsRoute
+  '/news': typeof NewsRoute
+  '/register': typeof RegisterRoute
+  '/schedule': typeof ScheduleRoute
+  '/sponsors': typeof SponsorsRoute
+  '/travel': typeof TravelRoute
+  '/visitors': typeof VisitorsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/exhibitors': typeof ExhibitorsRoute
+  '/explore': typeof ExploreRoute
+  '/login': typeof LoginRoute
+  '/maps': typeof MapsRoute
+  '/news': typeof NewsRoute
+  '/register': typeof RegisterRoute
+  '/schedule': typeof ScheduleRoute
+  '/sponsors': typeof SponsorsRoute
+  '/travel': typeof TravelRoute
+  '/visitors': typeof VisitorsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/exhibitors'
+    | '/explore'
+    | '/login'
+    | '/maps'
+    | '/news'
+    | '/register'
+    | '/schedule'
+    | '/sponsors'
+    | '/travel'
+    | '/visitors'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/exhibitors'
+    | '/explore'
+    | '/login'
+    | '/maps'
+    | '/news'
+    | '/register'
+    | '/schedule'
+    | '/sponsors'
+    | '/travel'
+    | '/visitors'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/exhibitors'
+    | '/explore'
+    | '/login'
+    | '/maps'
+    | '/news'
+    | '/register'
+    | '/schedule'
+    | '/sponsors'
+    | '/travel'
+    | '/visitors'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  ExhibitorsRoute: typeof ExhibitorsRoute
+  ExploreRoute: typeof ExploreRoute
+  LoginRoute: typeof LoginRoute
+  MapsRoute: typeof MapsRoute
+  NewsRoute: typeof NewsRoute
+  RegisterRoute: typeof RegisterRoute
+  ScheduleRoute: typeof ScheduleRoute
+  SponsorsRoute: typeof SponsorsRoute
+  TravelRoute: typeof TravelRoute
+  VisitorsRoute: typeof VisitorsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/visitors': {
+      id: '/visitors'
+      path: '/visitors'
+      fullPath: '/visitors'
+      preLoaderRoute: typeof VisitorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/travel': {
+      id: '/travel'
+      path: '/travel'
+      fullPath: '/travel'
+      preLoaderRoute: typeof TravelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsors': {
+      id: '/sponsors'
+      path: '/sponsors'
+      fullPath: '/sponsors'
+      preLoaderRoute: typeof SponsorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schedule': {
+      id: '/schedule'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof ScheduleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maps': {
+      id: '/maps'
+      path: '/maps'
+      fullPath: '/maps'
+      preLoaderRoute: typeof MapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exhibitors': {
+      id: '/exhibitors'
+      path: '/exhibitors'
+      fullPath: '/exhibitors'
+      preLoaderRoute: typeof ExhibitorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +297,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  ExhibitorsRoute: ExhibitorsRoute,
+  ExploreRoute: ExploreRoute,
+  LoginRoute: LoginRoute,
+  MapsRoute: MapsRoute,
+  NewsRoute: NewsRoute,
+  RegisterRoute: RegisterRoute,
+  ScheduleRoute: ScheduleRoute,
+  SponsorsRoute: SponsorsRoute,
+  TravelRoute: TravelRoute,
+  VisitorsRoute: VisitorsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
