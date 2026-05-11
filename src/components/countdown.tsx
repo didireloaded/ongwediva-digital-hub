@@ -33,7 +33,7 @@ export function Countdown() {
       {items.map((i) => (
         <div key={i.label} className="text-center">
           <div className="glass rounded-xl px-3 md:px-5 py-2.5 md:py-3 min-w-[60px] md:min-w-[80px]">
-            <div className="font-display text-2xl md:text-4xl font-bold tabular-nums text-gradient-ember">
+            <div className="font-display text-2xl md:text-4xl font-bold tabular-nums text-gradient-brand">
               {i.value === undefined ? "--" : String(i.value).padStart(2, "0")}
             </div>
           </div>

@@ -1,30 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 
-const POSTS = Array.from({ length: 6 }).map((_, i) => ({
-  id: i,
-  date: "05 Feb 2026",
-  title: i === 0 ? "OATF Launches New Digital Platform for a Paperless Trade Fair" : "More OATF 2026 announcements coming soon",
-  excerpt: "The Ongwediva Annual Trade Fair has launched a new website and digital platform supporting its move toward a fully paperless event.",
-}));
-
 export const Route = createFileRoute("/news")({
-  head: () => ({ meta: [{ title: "News — OATF 2026" }, { name: "description", content: "Latest news, announcements and stories from OATF 2026." }] }),
+  head: () => ({
+    meta: [
+      { title: "News — OATF 2026" },
+      { name: "description", content: "Latest news, announcements and stories from OATF 2026." },
+    ],
+  }),
   component: () => (
-    <PageShell eyebrow="News" title={<>The latest from <span className="text-gradient-ember">OATF.</span></>} intro="Announcements, exhibitor stories and behind-the-scenes from the fair.">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {POSTS.map((p) => (
-          <article key={p.id} className="group glass rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform">
-            <div className="aspect-[16/10] bg-gradient-to-br from-ember/30 via-sun/10 to-savanna/20" />
-            <div className="p-6">
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">{p.date}</div>
-              <h3 className="font-display text-xl font-semibold mt-3 group-hover:text-ember transition-colors">
-                {p.title}
-              </h3>
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{p.excerpt}</p>
-            </div>
-          </article>
-        ))}
+    <PageShell
+      eyebrow="News & Updates"
+      title={
+        <>
+          Live Updates from <span className="text-gradient-brand">Social Media.</span>
+        </>
+      }
+      intro="Follow our latest announcements, exhibitor stories, and behind-the-scenes content in real-time."
+    >
+      <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto space-y-8">
+        <div className="text-center">
+          <p className="text-muted-foreground">
+            Our news feed is synced directly with our official Facebook page so you never miss an update.
+          </p>
+        </div>
+
+        <div className="w-full bg-white rounded-2xl overflow-hidden glass flex justify-center p-4">
+          {/* We use the Facebook Page Plugin iframe to show real-time posts directly from the OATF page. */}
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FOngwediva-Annual-Trade-Fair-OATF%2F100071613917216%2F&tabs=timeline&width=500&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            width="500"
+            height="800"
+            style={{ border: "none", overflow: "hidden", maxWidth: "100%" }}
+            scrolling="no"
+            frameBorder="0"
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            title="OATF Facebook Feed"
+          ></iframe>
+        </div>
       </div>
     </PageShell>
   ),

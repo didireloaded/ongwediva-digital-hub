@@ -12,6 +12,7 @@ const NAV = [
   { to: "/travel", label: "Travel & Stay" },
   { to: "/news", label: "News" },
   { to: "/about", label: "About" },
+  { to: "/sponsors", label: "Sponsors" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -42,15 +43,11 @@ export function SiteHeader() {
           }`}
         >
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="relative h-8 w-8 rounded-lg bg-gradient-ember shadow-elegant">
-              <div className="absolute inset-0.5 rounded-[7px] bg-background flex items-center justify-center text-xs font-bold text-gradient-ember">
-                O
-              </div>
-            </div>
-            <div className="leading-tight">
-              <div className="font-display text-sm font-bold tracking-tight">OATF</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">2026</div>
-            </div>
+            <img 
+              src="https://oatf.com.na/images/oatf-logo.png" 
+              alt="OATF Logo" 
+              className="h-10 w-auto object-contain hover:scale-105 transition-transform"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
@@ -66,7 +63,7 @@ export function SiteHeader() {
                 >
                   {n.label}
                   {active && (
-                    <span className="absolute inset-x-3 -bottom-0.5 h-px bg-gradient-ember" />
+                    <span className="absolute inset-x-3 -bottom-0.5 h-px bg-gradient-brand" />
                   )}
                 </Link>
               );
@@ -82,7 +79,7 @@ export function SiteHeader() {
             </Link>
             <Link
               to="/register"
-              className="px-4 py-2 text-sm font-semibold rounded-full bg-gradient-ember text-primary-foreground shadow-elegant hover:scale-105 transition-transform"
+              className="px-4 py-2 text-sm font-semibold rounded-full bg-gradient-brand text-primary-foreground shadow-elegant hover:scale-105 transition-transform"
             >
               Register
             </Link>
@@ -118,7 +115,7 @@ export function SiteHeader() {
                 </Link>
                 <Link
                   to="/register"
-                  className="flex-1 px-4 py-2.5 text-sm font-semibold text-center rounded-full bg-gradient-ember text-primary-foreground"
+                  className="flex-1 px-4 py-2.5 text-sm font-semibold text-center rounded-full bg-gradient-brand text-primary-foreground"
                 >
                   Register
                 </Link>
