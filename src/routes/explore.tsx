@@ -4,7 +4,7 @@ import { HALLS, EXHIBITORS, CATEGORIES } from "@/lib/oatf-data";
 import { ArrowRight, Building2, Sparkles, Map as MapIcon, ChevronRight } from "lucide-react";
 import exploreImg from "@/assets/explore-hall.jpg";
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Route = createFileRoute("/explore")({
   head: () => ({
