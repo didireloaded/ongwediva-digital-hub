@@ -73,16 +73,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "OATF 2026 — Ongwediva Annual Trade Fair" },
-      { name: "description", content: "Namibia's largest business, innovation and culture experience. Explore exhibitors, plan your visit and join OATF 2026 in Ongwediva." },
+      {
+        name: "description",
+        content:
+          "Namibia's largest business, innovation and culture experience. Explore exhibitors, plan your visit and join OATF 2026 in Ongwediva.",
+      },
       { property: "og:title", content: "OATF 2026 — Ongwediva Annual Trade Fair" },
-      { property: "og:description", content: "Namibia's largest business, innovation and culture experience." },
+      {
+        property: "og:description",
+        content: "Namibia's largest business, innovation and culture experience.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap",
+      },
       { rel: "stylesheet", href: appCss },
     ],
   }),
@@ -94,11 +104,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <Scripts />
       </body>

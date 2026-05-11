@@ -8,18 +8,21 @@ export const Route = createFileRoute("/schedule")({
   head: () => ({
     meta: [
       { title: "Schedule — OATF 2026" },
-      { name: "description", content: "Nine days of talks, launches and live activations at OATF 2026." },
+      {
+        name: "description",
+        content: "Nine days of talks, launches and live activations at OATF 2026.",
+      },
     ],
   }),
   component: SchedulePage,
 });
 
 const TYPE_COLORS: Record<string, string> = {
-  Keynote: "bg-ember/20 text-ember border-ember/30",
-  Panel: "bg-savanna/20 text-savanna border-savanna/30",
-  Launch: "bg-sun/20 text-sun border-sun/30",
-  Cultural: "bg-ember/20 text-ember border-ember/30",
-  Networking: "bg-savanna/20 text-savanna border-savanna/30",
+  Keynote: "bg-primary/20 text-primary border-primary/30",
+  Panel: "bg-oatf-blue/20 text-oatf-blue border-oatf-blue/30",
+  Launch: "bg-oatf-gold/20 text-oatf-gold border-oatf-gold/30",
+  Cultural: "bg-primary/20 text-primary border-primary/30",
+  Networking: "bg-oatf-blue/20 text-oatf-blue border-oatf-blue/30",
 };
 
 function SchedulePage() {
@@ -29,7 +32,11 @@ function SchedulePage() {
   return (
     <PageShell
       eyebrow="Schedule"
-      title={<>Nine days. <span className="text-gradient-ember">Endless moments.</span></>}
+      title={
+        <>
+          Nine days. <span className="text-gradient-brand">Endless moments.</span>
+        </>
+      }
       intro="Build your personal OATF agenda — keynotes, launches, cultural showcases and networking events."
     >
       <div className="flex gap-2 overflow-x-auto pb-2 mb-8">
@@ -39,7 +46,7 @@ function SchedulePage() {
             onClick={() => setDay(d.id)}
             className={`flex-shrink-0 px-5 py-3 rounded-2xl text-left transition-all ${
               day === d.id
-                ? "bg-gradient-ember text-primary-foreground shadow-elegant"
+                ? "bg-gradient-brand text-primary-foreground shadow-elegant"
                 : "glass text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -51,13 +58,20 @@ function SchedulePage() {
 
       <div className="space-y-3">
         {events.map((e) => (
-          <div key={e.id} className="glass rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 hover:bg-white/[0.06] transition-colors">
+          <div
+            key={e.id}
+            className="glass rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 hover:bg-white/[0.06] transition-colors"
+          >
             <div className="md:w-24 flex-shrink-0">
-              <div className="font-display text-2xl md:text-3xl font-bold tabular-nums text-gradient-ember">{e.time}</div>
+              <div className="font-display text-2xl md:text-3xl font-bold tabular-nums text-gradient-brand">
+                {e.time}
+              </div>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-2 flex-wrap">
-                <span className={`text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border ${TYPE_COLORS[e.type]}`}>
+                <span
+                  className={`text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border ${TYPE_COLORS[e.type]}`}
+                >
                   {e.type}
                 </span>
               </div>

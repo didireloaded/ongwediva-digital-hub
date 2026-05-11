@@ -19,7 +19,7 @@ export function PageShell({
       <section className="relative pt-40 pb-20">
         <div className="absolute inset-0 bg-glow opacity-60" />
         <div className="container-x relative">
-          <div className="text-xs uppercase tracking-[0.3em] text-ember mb-4">{eyebrow}</div>
+          <div className="text-xs uppercase tracking-[0.3em] text-primary mb-4">{eyebrow}</div>
           <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] max-w-4xl">
             {title}
           </h1>
@@ -37,11 +37,12 @@ export function PageShell({
 export function ComingSoon({ note }: { note?: string }) {
   return (
     <div className="glass rounded-3xl p-10 md:p-16 text-center">
-      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-ember text-primary-foreground text-xs font-semibold mb-6">
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-brand text-primary-foreground text-xs font-semibold mb-6">
         Phase 2 · Coming Soon
       </div>
       <p className="text-muted-foreground max-w-xl mx-auto">
-        {note ?? "This experience is being built. Data, layouts and interactions are coming online soon."}
+        {note ??
+          "This experience is being built. Data, layouts and interactions are coming online soon."}
       </p>
     </div>
   );
