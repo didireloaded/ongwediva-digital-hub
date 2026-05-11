@@ -127,11 +127,30 @@
     box-shadow: var(--shadow-soft);
   }
   .glass {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+    background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.25));
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 10px 40px -10px rgba(15, 27, 45, 0.18), inset 0 1px 0 rgba(255,255,255,0.6);
+  }
+  .glass-strong {
+    background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255,255,255,0.45));
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 60px -15px rgba(15, 27, 45, 0.25), inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+  /* Make all shadcn cards & popovers feel like glass by default */
+  [data-slot="card"],
+  [data-slot="popover-content"],
+  [data-slot="dialog-content"],
+  [data-slot="dropdown-menu-content"],
+  [data-slot="select-content"],
+  [data-slot="sheet-content"] {
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    border-color: rgba(255,255,255,0.55) !important;
+    box-shadow: 0 10px 40px -10px rgba(15,27,45,0.18), inset 0 1px 0 rgba(255,255,255,0.6) !important;
   }
   .container-x {
     @apply mx-auto w-full max-w-7xl px-6 md:px-10;
