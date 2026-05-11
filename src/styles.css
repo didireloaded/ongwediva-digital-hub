@@ -55,24 +55,24 @@
   --oatf-blue: #00599a;
   --oatf-gold: #cf922e; /* OATF Gold */
 
-  --secondary: #cf922e;
-  --secondary-foreground: #ffffff;
-  --muted: #f1f3f5;
-  --muted-foreground: #6c757d;
-  --accent: #e9ecef;
-  --accent-foreground: #212529;
+  --secondary: rgba(255, 255, 255, 0.6);
+  --secondary-foreground: #0f1b2d;
+  --muted: rgba(255, 255, 255, 0.45);
+  --muted-foreground: #4b5b73;
+  --accent: rgba(0, 89, 154, 0.08);
+  --accent-foreground: #00599a;
 
   --destructive: #dc3545;
   --destructive-foreground: #ffffff;
-  --border: #dee2e6;
-  --input: #ced4da;
+  --border: rgba(255, 255, 255, 0.6);
+  --input: rgba(255, 255, 255, 0.5);
   --ring: #00599a;
 
   --gradient-brand: linear-gradient(135deg, #00599a, #0082ba);
-  --gradient-dusk: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
-  --gradient-glow: radial-gradient(60% 60% at 50% 0%, rgba(0, 89, 154, 0.15), transparent 70%);
-  --shadow-elegant: 0 20px 40px -10px rgba(0, 89, 154, 0.15);
-  --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+  --gradient-dusk: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.25) 100%);
+  --gradient-glow: radial-gradient(60% 60% at 50% 0%, rgba(0, 89, 154, 0.18), transparent 70%);
+  --shadow-elegant: 0 20px 60px -15px rgba(0, 89, 154, 0.25), inset 0 1px 0 rgba(255,255,255,0.5);
+  --shadow-soft: 0 10px 40px -10px rgba(15, 27, 45, 0.12);
 }
 
 @layer base {
